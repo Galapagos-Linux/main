@@ -7,4 +7,8 @@
 			format (allows creation of Windows EXEs on Linux ELF systems)
 		</flag>
 	</use>
+	<maintainer type="person">
+		<email>elizabeth@interlinked.me</email>
+		<description>Primary maintainer for Galapagos</description>
+	</maintainer>
 </pkgmetadata>
