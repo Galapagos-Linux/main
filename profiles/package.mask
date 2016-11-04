@@ -936,10 +936,6 @@ dev-libs/iniparser:4
 # It works (except USE=vamp) but is not up to Gentoo standards yet
 >=media-sound/audacity-2.1.1
 
-# Patrick Lauer <patrick@gentoo.org> (1 Jul 2015)
-# Wrong version #553670
-=sys-kernel/gentoo-sources-4.1.1
-
 # Patrick Lauer <patrick@gentoo.org> (14 Jun 2015)
 # Has race condition / failure modes that make systems unusable
 # See #551724 and duplicates
@@ -1032,10 +1028,6 @@ app-eselect/eselect-lua
 =dev-lang/lua-5.2.3
 =dev-lang/lua-5.2.3-r1
 
-# Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (26 Mar 2014)
-# Affected by multiple vulnerabilities, #445916, #471098 and #472280
-<media-libs/mesa-9.1.4
-
 # Sergey Popov <pinkbyte@gentoo.org> (20 Mar 2014)
 # Security mask of vulnerable versions, wrt bug #424167
 <net-nds/openldap-2.4.35
@@ -1060,26 +1052,12 @@ www-plugins/chrome-binary-plugins:unstable
 # Upstream next versions
 >=sys-boot/raspberrypi-firmware-1_pre
 
-# Julian Ospald <hasufell@gentoo.org> (26 Jun 2013)
-# Depends on masked dev-lang/lua-5.2
-=games-emulation/sdlmame-0.149
-=games-emulation/sdlmess-0.149
-
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (25 Jun 2013)
 # Mask new ptlib/opal for breakage, tracked in bug #474742
 # Lars Wendler <polynomial-c@gentoo.org> (29 Apr 2014)
 # Adjusted mask so newer versions get covered as well.
 >=net-libs/ptlib-2.12.0
 >=net-libs/opal-3.12.0
-
-# Pacho Ramos <pacho@gentoo.org> (15 Jun 2013)
-# Upstream stalled, improper rendering (#470818),
-# use app-editors/efte instead.
-=app-editors/fte-20110708
-
-# Michael Weber <xmw@gentoo.org> (18 Apr 2013)
-# Masked due test failures
-=app-arch/advancecomp-1.17
 
 # Richard Freeman <rich0@gentoo.org> (24 Mar 2013)
 # Contains known buffer overflows.  Package generally works
@@ -1095,13 +1073,6 @@ app-text/cuneiform
 # Samuli Suominen <ssuominen@gentoo.org> (30 Oct 2011)
 # Masked for security bug #294253, use only at your own risk!
 =media-libs/fmod-3*
-
-# Mike Frysinger <vapier@gentoo.org> (07 Mar 2010)
-# Very old packages that people should have upgraded away from
-# long ago.  Courtesy mask ... time to upgrade.
-# Added <sys-fs/e2fsprogs as well (halcy0n)
-<sys-libs/e2fsprogs-libs-1.41.8
-<sys-fs/e2fsprogs-1.41.9
 
 # Diego E. Pettenò <flameeyes@gentoo.org> (03 Jan 2009)
 # These packages are not supposed to be merged directly, instead
