@@ -1,0 +1,27 @@
+--- repoman-2.3.0/pym/repoman/modules/scan/ebuild/checks.old	2016-06-01 14:54:34.000000000 -0500
++++ repoman-2.3.0/pym/repoman/modules/scan/ebuild/checks.py	2016-11-04 04:09:51.171751561 -0500
+@@ -86,6 +86,7 @@
+ 	repoman_check_name = 'ebuild.badheader'
+ 
+ 	gentoo_copyright = r'^# Copyright ((1999|2\d\d\d)-)?%s Gentoo Foundation$'
++	galapagos_copyright = r'# Copyright ((1999|2\d\d\d)-)?%s The Galapagos Linux Team$'
+ 	gentoo_license = (
+ 		'# Distributed under the terms'
+ 		' of the GNU General Public License v2')
+@@ -99,12 +100,15 @@
+ 			self.modification_year = str(time.gmtime(pkg.mtime)[0])
+ 		self.gentoo_copyright_re = re.compile(
+ 			self.gentoo_copyright % self.modification_year)
++		self.galapagos_copyright_re = re.compile(
++			self.galapagos_copyright % self.modification_year)
+ 
+ 	def check(self, num, line):
+ 		if num > 2:
+ 			return
+ 		elif num == 0:
+-			if not self.gentoo_copyright_re.match(line):
++			if not self.gentoo_copyright_re.match(line) and \
++				not self.galapagos_copyright_re.match(line):
+ 				return errors.COPYRIGHT_ERROR
+ 		elif num == 1 and line.rstrip('\n') != self.gentoo_license:
+ 			return errors.LICENSE_ERROR
