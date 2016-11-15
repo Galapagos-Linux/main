@@ -112,10 +112,6 @@ media-video/mpv rubberband
 dev-libs/efl physics sdl
 media-libs/elementary sdl
 
-# Michał Górny <mgorny@gentoo.org> (08 Mar 2015)
-# Dependency not keyworded on this arch, bug #542570.
-xfce-base/xfce4-settings libinput
-
 # Alexis Ballier <aballier@gentoo.org> (11 Feb 2015)
 # Missing ffmpeg deps, bug #510340
 media-video/ffmpeg x265
@@ -155,7 +151,7 @@ sys-apps/systemd xkb
 # Missing keywords on dev-libs/protobuf-c (bug 519772)
 >=net-libs/libgadu-1.12.0 gg11
 
-# Christoph Junghans <ottxor@gentoo.org> (21 Jul 2014)
+# Christoph Junghans <junghans@gentoo.org> (21 Jul 2014)
 # Missing keywords on sci-libs/libcerf (bug 517726)
 sci-visualization/gnuplot libcerf
 
