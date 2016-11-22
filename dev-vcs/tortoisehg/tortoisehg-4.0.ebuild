@@ -65,10 +65,15 @@ python_install_all() {
 	distutils-r1_python_install_all
 	dodoc doc/ReadMe*.txt doc/TODO contrib/mergetools.rc
 	if use doc ; then
-		dohtml -r doc/build/html/
+		docinto html
+		dodoc -r doc/build/html/
 	fi
 	newicon -s scalable icons/scalable/apps/thg.svg thg_logo.svg
 	domenu contrib/thg.desktop
+
+	# Remove file that collides with >=mercurial-4.0 (bug #599266).
+	rm "${ED}"/usr/$(get_libdir)/${EPYTHON}/site-packages/hgext3rd/__init__.py \
+		|| die
 }
 
 pkg_postinst() {
