@@ -16,12 +16,13 @@ SRC_URI="http://www.cmake.org/files/v$(get_version_component_range 1-2)/${MY_P}.
 LICENSE="CMake"
 SLOT="0"
 [[ "${PV}" = *_rc* ]] || \
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc emacs system-jsoncpp ncurses qt5"
 
 RDEPEND="
 	>=app-arch/libarchive-3.0.0:=
 	>=dev-libs/expat-2.0.1
+	>=dev-libs/libuv-1.0.0:=
 	>=net-misc/curl-7.21.5[ssl]
 	sys-libs/zlib
 	virtual/pkgconfig
@@ -35,7 +36,6 @@ RDEPEND="
 	system-jsoncpp? ( >=dev-libs/jsoncpp-0.6.0_rc2:0= )
 "
 DEPEND="${RDEPEND}
-	dev-libs/libuv
 	doc? ( dev-python/sphinx )
 "
 
@@ -184,7 +184,7 @@ src_install() {
 
 	dobashcomp Auxiliary/bash-completion/{${PN},ctest,cpack}
 
-	rm -rf "${ED}"/usr/share/cmake/{completions,editors} || die
+	rm -r "${ED}"/usr/share/cmake/{completions,editors} || die
 }
 
 pkg_postinst() {
