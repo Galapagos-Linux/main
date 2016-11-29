@@ -681,7 +681,7 @@ compile_headers() {
 		# if K_DEFCONFIG isn't set, force to "defconfig"
 		# needed by mips
 		if [[ -z ${K_DEFCONFIG} ]]; then
-			if [[ $(KV_to_int ${KV}) -ge $(KV_to_int 2.6.16) ]]; then
+			if kernel_is ge 2 6 16 ; then
 				case ${CTARGET} in
 					powerpc64*)	K_DEFCONFIG="ppc64_defconfig";;
 					powerpc*)	K_DEFCONFIG="pmac32_defconfig";;
@@ -1260,8 +1260,12 @@ kernel-2_src_unpack() {
 	# we run misc `make` functions below
 	[[ $(type -t kernel-2_hook_premake) == "function" ]] && kernel-2_hook_premake
 
-	debug-print "Doing epatch_user"
-	epatch_user
+	debug-print "Applying any user patches"
+	# apply any user patches
+    case ${EAPI:-0} in
+        0|1|2|3|4|5) epatch_user ;;
+        6) eapply_user ;;
+    esac
 
 	debug-print "Doing unpack_set_extraversion"
 

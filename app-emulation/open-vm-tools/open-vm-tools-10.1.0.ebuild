@@ -49,7 +49,6 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	doc? ( app-doc/doxygen )
 	virtual/pkgconfig
-	sys-apps/findutils
 "
 
 RDEPEND="${COMMON_DEPEND}
@@ -60,6 +59,7 @@ S="${WORKDIR}/${MY_P}/open-vm-tools"
 PATCHES=(
 	"${FILESDIR}/10.1.0-mount.vmhgfs.patch"
 	"${FILESDIR}/10.1.0-vgauth.patch"
+	"${FILESDIR}/10.1.0-Werror.patch"
 )
 
 pkg_setup() {
@@ -101,15 +101,16 @@ src_configure() {
 		$(use_with X gtkmm3)
 		$(use_with X x)
 
+		# configure locates the kernel object directory by looking for
+		# "/lib/modules/${KERNEL_RELEASE}/build".
+		# This will fail if the user is building against an uninstalled kernel.
+		# Fixing this would mean reworking the build system.
 		$(use_with modules kernel-modules)
 		--without-root-privileges
 		--with-kernel-release="${KV_FULL}"
 	)
 
 	econf "${myeconfargs[@]}"
-
-	# Bugs 260878, 326761
-	find . -name Makefile -exec sed -i -e 's/-Werror//g' '{}' +  || die "sed out Werror failed"
 }
 
 src_compile() {
