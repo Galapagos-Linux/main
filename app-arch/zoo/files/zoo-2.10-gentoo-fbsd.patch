@@ -1,5 +1,5 @@
---- sysv.c	2007-06-16 15:01:53 +0200
-+++ sysv.c.new	2007-06-16 14:38:38 +0200
+--- zoo/sysv.c	2007-06-16 15:01:53 +0200
++++ zoo/sysv.c.new	2007-06-16 14:38:38 +0200
 @@ -63,8 +63,8 @@
     return (fname); /* default is no-op */
  }
@@ -11,8 +11,8 @@
  struct tm *localtime ();
  
  /* Function gettz(), returns the offset from GMT in seconds of the
---- zoo.h	2007-06-16 15:01:53 +0200
-+++ zoo.h.new	2007-06-16 14:57:58 +0200
+--- zoo/zoo.h	2007-06-16 15:01:53 +0200
++++ zoo/zoo.h.new	2007-06-16 14:57:58 +0200
 @@ -95,6 +95,9 @@
  #endif
  

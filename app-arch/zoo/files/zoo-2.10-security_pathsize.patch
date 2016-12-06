@@ -1,7 +1,7 @@
 Taken from Fedora
 
---- misc.c
-+++ misc.c
+--- zoo/misc.c
++++ zoo/misc.c
 @@ -135,11 +135,17 @@
  char *fullpath (direntry)
  struct direntry *direntry;

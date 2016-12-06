@@ -1,7 +1,7 @@
 Taken from Fedora
 
---- portable.c
-+++ portable.c
+--- zoo/portable.c
++++ zoo/portable.c
 @@ -364,6 +364,31 @@
        show_dir(direntry);
     }
