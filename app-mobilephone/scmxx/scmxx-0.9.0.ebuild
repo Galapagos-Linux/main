@@ -1,9 +1,9 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 DESCRIPTION="Exchange data with Siemens phones"
-HOMEPAGE="http://www.hendrik-sattler.de/scmxx/"
+HOMEPAGE="https://sourceforge.net/projects/scmxx/"
 SRC_URI="mirror://sourceforge/scmxx/${P}.tar.bz2"
 
 LICENSE="GPL-2"
