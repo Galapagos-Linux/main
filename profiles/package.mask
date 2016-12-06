@@ -215,11 +215,6 @@ app-misc/roadnav
 dev-libs/libroadnav
 
 # Pacho Ramos <pacho@gentoo.org> (27 Nov 2016)
-# Dead and obsolete lib not needed by anything in the tree (#567946).
-# Removal in a month.
-app-mobilephone/gsmlib
-
-# Pacho Ramos <pacho@gentoo.org> (27 Nov 2016)
 # Not compatible with tcl/tk 8.6, obsolete version, bug #547322.
 # Try to use versions from sci overlay. Removal in a month.
 media-gfx/brlcad
