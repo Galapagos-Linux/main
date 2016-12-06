@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Manipulate archives of files in compressed form"
-HOMEPAGE="ftp://ftp.kiarchive.ru/pub/unix/arcers"
+HOMEPAGE="http://ftp.math.utah.edu/pub/zoo/"
 SRC_URI="ftp://ftp.kiarchive.ru/pub/unix/arcers/${P}pl1.tar.gz
 	mirror://gentoo/${P}-gcc-issues-fix.patch"
 
