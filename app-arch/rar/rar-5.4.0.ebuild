@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
+
 MY_PV="${PV/0_beta/b}"
 DESCRIPTION="RAR compressor/uncompressor"
 HOMEPAGE="http://www.rarsoft.com/"
@@ -26,7 +27,7 @@ RESTRICT="mirror bindist"
 DEPEND="all_sfx? ( app-arch/unrar )"
 RDEPEND="sys-libs/glibc"
 
-S=${WORKDIR}/${PN}
+S="${WORKDIR}/${PN}"
 
 QA_FLAGS_IGNORED="opt/rar/default.sfx
 	opt/rar/default-elf32.sfx
