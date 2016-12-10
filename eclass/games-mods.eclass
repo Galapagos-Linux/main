@@ -3,7 +3,7 @@
 # $Id$
 
 # Variables to specify in an ebuild which uses this eclass:
-# GAME - (doom3, quake4 or ut2004, etc), unless ${PN} starts with e.g. "doom3-"
+# GAME - (quake4 or ut2004, etc), unless ${PN} starts with e.g. "ut2004-"
 # MOD_DESC - Description for the mod
 # MOD_NAME - Creates a command-line wrapper and desktop icon for the mod
 # MOD_DIR - Subdirectory name for the mod, if applicable
@@ -16,18 +16,6 @@ EXPORT_FUNCTIONS src_install pkg_postinst
 [[ -z ${GAME} ]] && GAME=${PN%%-*}
 
 case ${GAME} in
-	doom3)
-		GAME_PKGS="games-fps/doom3"
-		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/doom3 )
-		GAME_NAME="Doom 3"
-		GAME_BIN="doom3"
-		GAME_ICON="doom3"
-		DED_PKGS=""
-		DED_BIN="doom3-ded"
-		DED_OPTS="+set dedicated 1 +exec server.cfg"
-		DED_CFG_DIR=".doom3"
-		SELECT_MOD="+set fs_game "
-		;;
 	enemy-territory)
 		GAME_PKGS="games-fps/enemy-territory"
 		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/enemy-territory )
