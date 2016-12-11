@@ -2,4 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <!-- maintainer-needed -->
+<longdescription>
+Zoo is used to create and maintain collections of files in compressed form. It uses a Lempel-Ziv compression algorithm that gives space savings in the range of 20% to 80% depending on the type of file data. Zoo can store and selectively extract multiple generations of the same file.
+
+This package exists for its historical value. If you are looking for a compression tool for serious use, check tar and gzip. 
+</longdescription>
 </pkgmetadata>
