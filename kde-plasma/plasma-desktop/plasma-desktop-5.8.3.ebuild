@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5
 
 DESCRIPTION="KDE Plasma desktop"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="+fontconfig gtk2 gtk3 +input_devices_evdev input_devices_synaptics ibus
 legacy-systray packagekit pulseaudio +qt4 scim +semantic-desktop"
 
@@ -115,7 +115,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-apps/kdepasswd:4
 	!kde-apps/knetattach[handbook]
 	!kde-base/plasma-desktop:4
-	!kde-base/plasma-workspace:4
+	!kde-plasma/plasma-workspace:4
 	!kde-plasma/solid-actions-kcm:4
 	!kde-plasma/systemsettings:4
 	!kde-misc/kcm_touchpad

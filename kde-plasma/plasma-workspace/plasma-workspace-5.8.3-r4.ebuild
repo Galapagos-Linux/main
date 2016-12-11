@@ -10,7 +10,7 @@ VIRTUALX_REQUIRED="test"
 inherit kde5 multilib qmake-utils
 
 DESCRIPTION="KDE Plasma workspace"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="+calendar geolocation gps prison qalculate +semantic-desktop"
 
 COMMON_DEPEND="
@@ -114,7 +114,7 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/krunner:4
 	!kde-plasma/ksmserver:4
 	!kde-plasma/ksplash:4
-	!kde-base/plasma-workspace:4
+	!kde-plasma/plasma-workspace:4
 "
 DEPEND="${COMMON_DEPEND}
 	x11-proto/xproto

@@ -9,7 +9,7 @@ inherit kde5 multibuild multilib
 
 DESCRIPTION="KWallet PAM module to not enter password again"
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="+oldwallet"
 
 COMMON_DEPEND="
@@ -90,6 +90,5 @@ pkg_postinst() {
 	elog "4.b Checking installed DMs..."
 	has_version "x11-misc/sddm" && check_dm "SDDM" "/etc/pam.d/sddm"
 	has_version "x11-misc/lightdm" && check_dm "LightDM" "/etc/pam.d/lightdm"
-	has_version "kde-base/kdm" && check_dm "KDM" "/etc/pam.d/kde"
 	elog
 }
