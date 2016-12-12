@@ -36,8 +36,6 @@ games-action/awesomenauts
 games-action/beathazardultra
 games-action/brutal-legend
 games-action/cs2d
-games-action/descent3
-games-action/descent3-demo
 games-action/heretic2
 games-action/heretic2-demo
 games-action/hotline-miami
@@ -72,7 +70,6 @@ games-fps/enemy-territory-truecombat
 games-fps/etqw-bin
 games-fps/etqw-data
 games-fps/etqw-demo
-games-fps/glxquake-bin
 games-fps/legends
 games-fps/postal2
 games-fps/postal2mp-demo
