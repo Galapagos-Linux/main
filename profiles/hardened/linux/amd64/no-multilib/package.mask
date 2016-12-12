@@ -81,7 +81,6 @@ games-fps/enemy-territory
 games-fps/etqw-bin
 games-fps/etqw-data
 games-fps/etqw-demo
-games-fps/glxquake-bin
 games-fps/legends
 games-fps/postal2
 games-fps/postal2mp-demo
@@ -95,12 +94,6 @@ games-fps/rtcw
 games-fps/rtcwmp-demo
 games-fps/rtcwsp-demo
 games-fps/sauerbraten
-games-fps/soldieroffortune
-games-fps/soldieroffortune-demo
-games-fps/unreal-tournament
-games-fps/ut2003
-games-fps/ut2003-demo
-games-fps/ut2004-demo
 games-misc/little-inferno
 games-puzzle/drod-bin
 games-puzzle/hoh-bin
