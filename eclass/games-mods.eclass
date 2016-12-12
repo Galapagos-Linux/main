@@ -3,7 +3,7 @@
 # $Id$
 
 # Variables to specify in an ebuild which uses this eclass:
-# GAME - (doom3, quake4 or ut2004, etc), unless ${PN} starts with e.g. "doom3-"
+# GAME - (enemy-territory, etc), unless ${PN} starts with e.g. "enemy-territory-"
 # MOD_DESC - Description for the mod
 # MOD_NAME - Creates a command-line wrapper and desktop icon for the mod
 # MOD_DIR - Subdirectory name for the mod, if applicable
@@ -16,18 +16,6 @@ EXPORT_FUNCTIONS src_install pkg_postinst
 [[ -z ${GAME} ]] && GAME=${PN%%-*}
 
 case ${GAME} in
-	doom3)
-		GAME_PKGS="games-fps/doom3"
-		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/doom3 )
-		GAME_NAME="Doom 3"
-		GAME_BIN="doom3"
-		GAME_ICON="doom3"
-		DED_PKGS=""
-		DED_BIN="doom3-ded"
-		DED_OPTS="+set dedicated 1 +exec server.cfg"
-		DED_CFG_DIR=".doom3"
-		SELECT_MOD="+set fs_game "
-		;;
 	enemy-territory)
 		GAME_PKGS="games-fps/enemy-territory"
 		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/enemy-territory )
@@ -39,54 +27,6 @@ case ${GAME} in
 		DED_OPTS="+set dedicated 1 +exec server.cfg"
 		DED_CFG_DIR=".etwolf"
 		SELECT_MOD="+set fs_game "
-		;;
-	quake3)
-		GAME_PKGS="games-fps/quake3 games-fps/quake3-bin"
-		GAME_DIRS=( "${GAMES_DATADIR}"/quake3 "${GAMES_PREFIX_OPT}"/quake3 )
-		GAME_NAME="Quake III"
-		GAME_BIN="quake3"
-		GAME_ICON="quake3"
-		DED_PKGS=""
-		DED_BIN="quake3-ded"
-		DED_OPTS="+set dedicated 1 +exec server.cfg"
-		DED_CFG_DIR=".q3a"
-		SELECT_MOD="+set fs_game "
-		;;
-	quake4)
-		GAME_PKGS="games-fps/quake4-bin"
-		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/quake4 )
-		GAME_NAME="Quake 4"
-		GAME_BIN="quake4"
-		GAME_ICON="/usr/share/pixmaps/quake4.bmp"
-		DED_PKGS=""
-		DED_BIN="quake4-ded"
-		DED_OPTS="+set dedicated 1 +exec server.cfg"
-		DED_CFG_DIR=".quake4"
-		SELECT_MOD="+set fs_game "
-		;;
-	ut2003)
-		GAME_PKGS="games-fps/ut2003"
-		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/ut2003 )
-		GAME_NAME="UT2003"
-		GAME_BIN="ut2003"
-		GAME_ICON="ut2003"
-		DED_PKGS=""
-		DED_BIN="ucc"
-		DED_OPTS=""
-		DED_CFG_DIR=""
-		SELECT_MOD="-mod="
-		;;
-	ut2004)
-		GAME_PKGS="games-fps/ut2004"
-		GAME_DIRS=( "${GAMES_PREFIX_OPT}"/{ut2004,ut2004-ded} )
-		GAME_NAME="UT2004"
-		GAME_BIN="ut2004"
-		GAME_ICON="ut2004"
-		DED_PKGS="games-server/ut2004-ded"
-		DED_BIN="ut2004-ded"
-		DED_OPTS=""
-		DED_CFG_DIR=""
-		SELECT_MOD="-mod="
 		;;
 	*)
 		eerror "This game is either not supported or you must set the GAME"
