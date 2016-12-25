@@ -33,7 +33,6 @@ src_prepare() {
 		-e "s/^LDFLAGS += -X \"main.Version.*$/LDFLAGS += -X \"main.Version=${PV}\"/"\
 		-e "s/-ldflags '-s/-ldflags '/" src/${EGO_PN%/*}/Makefile || die
 	sed -i -e "s#RUN_USER = git#RUN_USER = gitea#"\
-		-e "s#^STATIC_ROOT_PATH =#STATIC_ROOT_PATH = ${EPREFIX}/usr/share/themes/gitea/default#"\
 		-e "s#^APP_DATA_PATH = data#APP_DATA_PATH = ${GITEA_PREFIX}/data#"\
 		-e "s#^PATH = data/gitea.db#PATH = ${GITEA_PREFIX}/data/gitea.db#"\
 		-e "s#^PROVIDER_CONFIG = data/sessions#PROVIDER_CONFIG = ${GITEA_PREFIX}/data/sessions#"\
@@ -45,21 +44,19 @@ src_prepare() {
 
 src_compile() {
 	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" emake -C src/${EGO_PN%/*} generate
-	TAGS="bindata cert pam sqlite" LDFLAGS="" GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" emake -C src/${EGO_PN%/*} build
+	TAGS="bindata pam sqlite" LDFLAGS="" GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" emake -C src/${EGO_PN%/*} build
 }
 
 src_install() {
 	pushd src/${EGO_PN%/*} || die
 	dobin gitea
-	insinto /etc/gitea
+	insinto /var/lib/gitea/conf
 	doins conf/app.ini
-	insinto /usr/share/themes/gitea/default
-	doins -r public templates
 	popd || die
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/gitea.logrotated gitea
 	newinitd "${FILESDIR}"/gitea.initd gitea
 	newconfd "${FILESDIR}"/gitea.confd gitea
 	keepdir /var/log/gitea /var/lib/gitea/data
-	fowners gitea:gitea /var/log/gitea /var/lib/gitea /var/lib/gitea/data
+	fowners -R gitea:gitea /var/log/gitea /var/lib/gitea/
 }
