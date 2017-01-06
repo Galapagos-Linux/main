@@ -30,6 +30,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Mart Raudsepp <leio@gentoo.org> (06 Jan 2017)
+# No releases of this API version since April 2001, abandoned
+# in favour of gtk+:2 for 14 years.
+# Masked for removal in 30 days. Bug 604862.
+x11-libs/gtk+:1
+
 # Robin H. Johnson <robbat2@gentoo.org> (05 Jan 2017)
 # Masking for testing
 =app-emulation/ganeti-2.16*
@@ -148,56 +154,10 @@ media-plugins/gimp-gmic
 # Mask ruby 2.0 for removal, bug 576034
 dev-lang/ruby:2.0
 
-# Johannes Huber <johu@gentoo.org> (05 Dec 2016)
-# Masked for removal in 30 days. Dead upstream.
-# Relies on deprecated dev-qt/qt3support.
-# Superseded by kde-apps/kolourpaint.
-media-gfx/kiconedit
-
-# Mike Gilbert <floppym@gentoo.org> (03 Dec 2016)
-# Sandbox failure on install. No maintainer.
-# https://bugs.gentoo.org/597146
-# https://bugs.gentoo.org/597188
-# Removal in 30 days.
-dev-python/pygtkspellcheck
-
-# Mike Gilbert <floppym@gentoo.org> (03 Dec 2016)
-# Duplicate package, see sci-libs/Shapely.
-# Removal in 30 days.
-dev-python/shapely
-
 # Pacho Ramos <pacho@gentoo.org> (27 Nov 2016)
 # Vulnerable to CVE-2015-1431 and nobody taking care of it, bug #538360.
 # Removal in a month.
 www-apps/phpBB
-
-# Pacho Ramos <pacho@gentoo.org> (27 Nov 2016)
-# Not compatible with mono-4, bug #596600, removal in a month.
-app-misc/tomboy
-
-# Pacho Ramos <pacho@gentoo.org> (27 Nov 2016)
-# Not compatible with tcl/tk 8.6, obsolete version, bug #547322.
-# Try to use versions from sci overlay. Removal in a month.
-media-gfx/brlcad
-
-# Mike Gilbert <floppym@gentoo.org> (25 Nov 2016)
-# Modules are now part of app-emulation/open-vm-tools.
-# Removal in 30 days.
-app-emulation/open-vm-tools-kmod
-
-# Mike Gilbert <floppym@gentoo.org> (24 Nov 2016)
-# Dead upstream, hosted on googlecode, no reverse dependencies.
-# Removal in 30 days.
-dev-python/platinfo
-dev-python/pssi
-dev-python/adns-python
-dev-python/py-bcrypt
-dev-python/pygooglevoice
-dev-python/winpdb
-
-# Dead and obsolete lib not needed by anything in the tree (#567946).
-# Removal in a month.
-app-mobilephone/gsmlib
 
 # Kent Fredric (19 Nov 2016)
 # virtual/perl-MathBigInt-1.999.726+ Mask Block
