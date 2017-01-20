@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -26,14 +26,11 @@ app-emulation/crossover-office-bin
 app-emulation/crossover-office-pro-bin
 app-emulation/playonlinux
 app-emulation/q4wine
-app-office/lotus-notes
 app-office/ooextras
 app-emulation/winetricks
 app-text/acroread
 dev-embedded/libftd2xx
 dev-embedded/openocd
->=dev-java/sun-j2me-bin-2.5.2.01
-dev-lang/dmd-bin
 dev-lang/icc
 dev-lang/idb
 dev-lang/ifc
@@ -48,7 +45,6 @@ games-action/descent3-demo
 games-action/heretic2
 games-action/heretic2-demo
 games-action/lugaru
-games-action/lugaru-demo
 games-action/mutantstorm-demo
 games-action/phobiaii
 games-action/rune
@@ -63,7 +59,6 @@ games-emulation/zinc
 games-emulation/zsnes
 games-fps/avp
 games-fps/enemy-territory-etpro
-games-fps/enemy-territory-fortress
 games-fps/enemy-territory-omnibot
 games-fps/enemy-territory-truecombat
 games-fps/enemy-territory
@@ -78,7 +73,6 @@ games-fps/rtcwmp-demo
 games-fps/rtcwsp-demo
 games-fps/sauerbraten
 games-fps/serious-sam-tse
-games-puzzle/drod-bin
 games-puzzle/hoh-bin
 games-roguelike/adom
 games-rpg/eschalon-book-1-demo
@@ -91,28 +85,20 @@ games-rpg/nwn-penultima
 games-rpg/nwn-penultimarerolled
 games-rpg/nwn-shadowlordsdreamcatcherdemon
 games-rpg/penumbra-collection
-games-rpg/sacred-gold
 games-server/etqw-ded
 games-server/nwn-ded
 games-simulation/bcs-demo
-games-strategy/coldwar
-games-strategy/coldwar-demo
 games-strategy/darwinia
 games-strategy/darwinia-demo
 games-strategy/defcon-demo
 games-strategy/dominions2
-games-strategy/dominions2-demo
 games-strategy/heroes3
 games-strategy/heroes3-demo
 games-strategy/majesty-demo
-games-strategy/savage-bin
 games-strategy/smac
 games-strategy/spaz
 media-fonts/acroread-asianfonts
-media-sound/shoutcast-server-bin
-media-sound/shoutcast-trans-bin
 media-sound/ventrilo-server-bin
-media-tv/huludesktop
 media-video/binkplayer
 media-video/tsmuxer
 net-im/skype

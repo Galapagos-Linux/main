@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation.
+# Copyright 1999-2017 Gentoo Foundation.
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -18,13 +18,11 @@ dev-libs/elfutils
 # packages that need masked packages or multilib
 dev-games/gtkradiant
 dev-games/ps2-packer
-games-action/awesomenauts
 games-action/beathazardultra
 games-action/brutal-legend
 games-action/heretic2-demo
 games-action/hotline-miami
 games-action/intrusion2
-games-action/lugaru-demo
 games-action/rune
 games-action/shadowgrounds-bin
 games-action/shadowgrounds-survivor-bin
@@ -67,14 +65,10 @@ games-rpg/penumbra-collection
 games-rpg/wasteland2
 games-server/etqw-ded
 games-simulation/bcs-demo
-games-strategy/coldwar
-games-strategy/coldwar-demo
 games-strategy/darwinia
 games-strategy/darwinia-demo
 games-strategy/defcon-demo
 games-strategy/dominions2
-games-strategy/dominions2-demo
 games-strategy/knights-demo
 games-strategy/majesty-demo
 media-video/binkplayer
-=games-action/lugaru-1.0c-r1
