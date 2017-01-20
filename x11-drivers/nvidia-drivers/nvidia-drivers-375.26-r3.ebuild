@@ -308,6 +308,9 @@ src_install() {
 			insinto /usr/share/X11/xorg.conf.d
 			newins {,50-}nvidia-drm-outputclass.conf
 		fi
+
+		insinto /usr/share/glvnd/egl_vendor.d
+		doins ${NV_X11}/10_nvidia.json
 	fi
 
 	# OpenCL ICD for NVIDIA

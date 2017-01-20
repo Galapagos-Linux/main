@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -6,7 +6,7 @@ EAPI=5
 inherit golang-build golang-vcs-snapshot
 
 EGO_PN="github.com/drone/drone/..."
-EGIT_COMMIT="b83a719e37c6f1c1f3f728f5250189d5aa4699af"
+EGIT_COMMIT="84f1bb45289f249e484ac0a36ae886dbc3a75464"
 ARCHIVE_URI="https://${EGO_PN%/*}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 
@@ -15,9 +15,9 @@ HOMEPAGE="https://github.com/drone/drone"
 SRC_URI="${ARCHIVE_URI}
 	https://github.com/drone/mq/archive/1a62dafd7863c0e0b256edec7db73716a8e17dde.tar.gz -> drone-mq-1a62dafd7863c0e0b256edec7db73716a8e17dde.tar.gz
 	https://github.com/tidwall/redlog/archive/54086c8553cd23aba652513a87d2b085ea961541.tar.gz -> tidwall-redlog-54086c8553cd23aba652513a87d2b085ea961541.tar.gz
-	https://github.com/golang/crypto/archive/ede567c8e044a5913dad1d1af3696d9da953104c.tar.gz -> golang-crypto-ede567c8e044a5913dad1d1af3696d9da953104c.tar.gz"
+	https://github.com/golang/crypto/archive/b8a2a83acfe6e6770b75de42d5ff4c67596675c0.tar.gz -> golang-crypto-b8a2a83acfe6e6770b75de42d5ff4c67596675c0.tar.gz"
 LICENSE="Apache-2.0"
-SLOT="0/${PVR}"
+SLOT="0"
 IUSE=""
 
 DEPEND="dev-go/go-bindata
