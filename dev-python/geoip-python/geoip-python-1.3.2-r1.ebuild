@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy pypy3 )
 
 inherit distutils-r1
@@ -16,29 +16,28 @@ SRC_URI="https://github.com/maxmind/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.ta
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ia64 ppc ~sparc x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~ia64 ~ppc ~sparc ~x86 ~x86-fbsd"
 IUSE="examples test"
 
 RDEPEND=">=dev-libs/geoip-1.4.8"
-DEPEND="${RDEPEND}
-	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
+DEPEND="
+	${RDEPEND}
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )
+"
 
 S="${WORKDIR}/${MY_P}"
 
 DOCS=( README.rst ChangeLog.md )
-
-python_compile() {
-	if [[ python_is_python3 || "$EPYTHON}" == 'pypy3' ]]; then
-		local -x CFLAGS="${CFLAGS} -fno-strict-aliasing"
-	fi
-	distutils-r1_python_compile
-}
 
 python_test() {
 	esetup.py test
 }
 
 python_install_all() {
-	use examples && local EXAMPLES=( examples/. )
+	if use examples; then
+		dodoc -r examples
+		docompress -x /usr/share/doc/${PF}/examples
+	fi
 	distutils-r1_python_install_all
 }
