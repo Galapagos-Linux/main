@@ -8,7 +8,7 @@ inherit kde5
 
 DESCRIPTION="Framework to install and load packages of non binary content"
 LICENSE="LGPL-2+"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="man"
 
 RDEPEND="
@@ -27,4 +27,13 @@ src_configure() {
 	)
 
 	kde5_src_configure
+}
+
+src_test() {
+	# tests cannot be run in parallel #606942
+	local myctestargs=(
+		-j1
+	)
+
+	kde5_src_test
 }
