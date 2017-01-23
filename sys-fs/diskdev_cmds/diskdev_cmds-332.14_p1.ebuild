@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -24,6 +24,7 @@ src_unpack() {
 	cd "${S}"
 	epatch "${WORKDIR}"/diskdev_cmds-${PV}.patch
 	epatch "${FILESDIR}"/diskdev_cmds-respect-cflags.patch
+	epatch_user
 }
 
 src_compile() {
