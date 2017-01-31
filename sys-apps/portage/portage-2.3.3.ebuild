@@ -124,7 +124,7 @@ python_prepare_all() {
 			-i cnf/make.globals || die "sed failed"
 
 		einfo "Adjusting repos.conf ..."
-		epatch "${FILESDIR}/repos.conf.patch"
+		epatch "${FILESDIR}/repos.conf.patch" || die "Failed to patch repos.conf"
 
 		einfo "Adding FEATURES=force-prefix to make.globals ..."
 		echo -e '\nFEATURES="${FEATURES} force-prefix"' >> cnf/make.globals \

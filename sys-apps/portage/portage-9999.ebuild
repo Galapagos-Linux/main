@@ -136,6 +136,10 @@ python_prepare_all() {
 	fi
 
 	cd "${S}/cnf" || die
+
+	einfo "Adjusting repos.conf ..."
+	epatch "${FILESDIR}/repos.conf.patch" || die "Failed to patch repos.conf"
+
 	if [ -f "make.conf.example.${ARCH}".diff ]; then
 		patch make.conf.example "make.conf.example.${ARCH}".diff || \
 			die "Failed to patch make.conf.example"
