@@ -16,11 +16,11 @@ KEYWORDS="amd64 ~arm64 x86"
 SLOT="0"
 
 # Tests fail due to silly import error, should be fixed next version
-#IUSE="test"
+RESTRICT_USE="test"
 
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 
-#python_test() {
-#	esetup.py test
-#}
+python_test() {
+	esetup.py test
+}
