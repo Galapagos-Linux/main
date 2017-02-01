@@ -14,13 +14,13 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="BSD-2"
 KEYWORDS="~amd64 ~arm64 ~x86"
 SLOT="0"
-IUSE="test doc +scrypt"
+IUSE="test doc"
 
 RDEPEND="dev-python/bcrypt[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
+	dev-python/scrypt[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	test? ( dev-python/nose[${PYTHON_USEDEP}] )
-	scrypt? ( dev-python/scrypt[${PYTHON_USEDEP}] )"
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
 
 python_test() {
 	nosetests -w "${BUILD_DIR}"/lib || die "Tests fail with ${EPYTHON}"
