@@ -1,18 +1,18 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit autotools eutils flag-o-matic
 
 DESCRIPTION="Open Source File Integrity Checker and IDS"
 HOMEPAGE="http://www.tripwire.org/"
-SRC_URI="mirror://sourceforge/tripwire/tripwire-${PV}-src.tar.bz2"
+SRC_URI="https://github.com/Tripwire/tripwire-open-source/archive/${PV}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
 IUSE="libressl ssl static +tools"
 
 DEPEND="sys-devel/automake
@@ -26,16 +26,10 @@ RDEPEND="virtual/cron
 	ssl? ( dev-libs/openssl )"
 PDEPEND="tools? ( app-admin/mktwpol )"
 
-S="${WORKDIR}"/tripwire-"${PV}"-src
+S="${WORKDIR}/tripwire-open-source-${PV}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/"${P}"-fix-configure.patch
-	epatch "${FILESDIR}"/"${P}"-buildnum.patch
-	epatch "${FILESDIR}"/"${P}"-gcc-4.7.patch
-	epatch "${FILESDIR}"/"${PN}"-twpol-GENERIC.patch
-	epatch "${FILESDIR}"/"${P}"-exception-shadowing.patch
-
-	mv configure.in configure.ac || die
+	default
 	eautoreconf
 }
 
