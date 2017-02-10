@@ -12,7 +12,7 @@ SRC_URI="mirror://kernel/linux/utils/boot/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 ~arm ia64 ppc ~ppc64 sparc x86"
-IUSE="debug selinux systemd"
+IUSE="debug doc selinux systemd"
 
 RESTRICT="test"
 
@@ -38,10 +38,12 @@ RDEPEND="${CDEPEND}
 	)
 	!>=app-shells/bash-4.4"
 DEPEND="${CDEPEND}
-	app-text/asciidoc
-	>=dev-libs/libxslt-1.1.26
-	app-text/docbook-xml-dtd:4.5
-	>=app-text/docbook-xsl-stylesheets-1.75.2
+	doc? (
+		app-text/asciidoc
+		>=dev-libs/libxslt-1.1.26
+		app-text/docbook-xml-dtd:4.5
+		>=app-text/docbook-xsl-stylesheets-1.75.2
+	)
 	virtual/pkgconfig
 	"
 
@@ -138,7 +140,8 @@ src_configure() {
 
 src_compile() {
 	tc-export CC
-	emake doc install/dracut-install skipcpio/skipcpio
+	emake install/dracut-install skipcpio/skipcpio
+	use doc && emake doc
 }
 
 src_install() {
