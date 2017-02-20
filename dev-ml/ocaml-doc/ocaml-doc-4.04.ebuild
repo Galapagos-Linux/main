@@ -1,10 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
+EAPI=5
+
 DESCRIPTION="Ocaml reference manual (html)"
 HOMEPAGE="http://caml.inria.fr/pub/docs/manual-ocaml/"
-SRC_URI="http://caml.inria.fr/pub/distrib/ocaml-${PV}/ocaml-${PV}-refman.html.tar.gz"
+SRC_URI="http://caml.inria.fr/pub/distrib/ocaml-${PV}/ocaml-${PV}-refman-html.tar.gz"
 LICENSE="GPL-2"
 
 KEYWORDS="amd64 ~ppc x86"
