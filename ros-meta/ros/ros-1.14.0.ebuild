@@ -6,15 +6,26 @@ EAPI=5
 
 ROS_REPO_URI="https://github.com/ros/ros"
 KEYWORDS="~amd64 ~arm"
-ROS_SUBDIR=tools/${PN}
-PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+ROS_SUBDIR=ros
 
 inherit ros-catkin
 
-DESCRIPTION="Tool for determining cflags/lflags/etc. of boost on your system"
+DESCRIPTION="ROS packaging system"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="
+	dev-ros/rosbash
+	dev-ros/rosboost_cfg
+	dev-ros/rosclean
+	dev-ros/roscreate
+	dev-ros/rosmake
+	dev-ros/rosunit
+
+	dev-ros/mk
+	dev-ros/rosbuild
+	dev-ros/roslang
+	dev-ros/roslib
+"
 DEPEND="${RDEPEND}"

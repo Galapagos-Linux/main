@@ -7,18 +7,22 @@ EAPI=5
 ROS_REPO_URI="https://github.com/ros/ros"
 KEYWORDS="~amd64 ~arm"
 PYTHON_COMPAT=( python{2_7,3_4,3_5} )
-ROS_SUBDIR=tools/${PN}
+ROS_SUBDIR=core/${PN}
 
 inherit ros-catkin
 
-DESCRIPTION="Tool that assists in the creation of ROS filesystem resources"
+DESCRIPTION="Base dependencies and support libraries for ROS"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
 RDEPEND="
-	dev-python/rospkg[${PYTHON_USEDEP}]
-	dev-ros/roslib[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}
-	test? ( dev-python/nose[${PYTHON_USEDEP}] )
+	>=dev-python/rospkg-1.0.37[${PYTHON_USEDEP}]
+	dev-libs/boost:=[threads]
+	dev-ros/rospack
 "
+DEPEND="${RDEPEND}
+	test? (
+		dev-cpp/gtest
+		dev-python/nose[${PYTHON_USEDEP}]
+	)"

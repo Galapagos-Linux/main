@@ -11,14 +11,13 @@ ROS_SUBDIR=tools/${PN}
 
 inherit ros-catkin
 
-DESCRIPTION="Tool that assists in the creation of ROS filesystem resources"
+DESCRIPTION="Cleanup filesystem resources (e.g. log files)"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-RDEPEND="
-	dev-python/rospkg[${PYTHON_USEDEP}]
-	dev-ros/roslib[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/rospkg[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	test? ( dev-python/nose[${PYTHON_USEDEP}] )
 "
+PATCHES=( "${FILESDIR}/bb.patch" )
