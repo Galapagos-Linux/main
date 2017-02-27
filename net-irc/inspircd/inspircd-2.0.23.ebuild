@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI="6"
 
 inherit toolchain-funcs user
 
@@ -19,7 +19,7 @@ RDEPEND="
 	dev-lang/perl
 	ssl? ( dev-libs/openssl:= )
 	geoip? ( dev-libs/geoip )
-	gnutls? ( net-libs/gnutls dev-libs/libgcrypt:0 )
+	gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:0 )
 	ldap? ( net-nds/openldap )
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql:= )
@@ -28,7 +28,7 @@ RDEPEND="
 	tre? ( dev-libs/tre )"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-fix-path-builds.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.0.23-fix-path-builds.patch )
 
 pkg_setup() {
 	enewgroup ${PN}
@@ -56,8 +56,8 @@ src_configure() {
 	use ssl && extras="${extras}m_ssl_openssl.cpp,"
 	use tre && extras="${extras}m_regex_tre.cpp,"
 
-	if [ -n "${extras}" ]; then
-		econf --disable-interactive --enable-extras=${extras}
+	if [[ -n "${extras}" ]]; then
+		econf --disable-interactive --enable-extras=${extras%,}
 	fi
 
 	econf \
@@ -69,9 +69,9 @@ src_configure() {
 		--log-dir="/var/log/${PN}" \
 		--binary-dir="/usr/bin" \
 		--module-dir="/usr/$(get_libdir)/${PN}/modules" \
-		$(use_enable ipv6) \
-		$(use_enable gnutls) \
-		$(use_enable ssl openssl)
+		$(usex ipv6 '' '--disable-ipv6') \
+		$(usex gnutls '--enable-gnutls' '') \
+		$(usex ssl '--enable-openssl' '')
 }
 
 src_compile() {
@@ -79,24 +79,29 @@ src_compile() {
 }
 
 src_install() {
-	emake INSTUID=${PN} DESTDIR="${D}" install
+	emake INSTUID=${PN} DESTDIR="${D%/}" install
 
 	insinto "/usr/include/${PN}"
-	doins include/*
+	doins -r include/.
 
 	diropts -o"${PN}" -g"${PN}" -m0700
 	dodir "/var/lib/${PN}"
 	dodir "/var/lib/${PN}/data"
 
-	newinitd "${FILESDIR}/${P}-init" "${PN}"
-	keepdir "/var/log/${PN}"/
+	newinitd "${FILESDIR}/${PN}-r2.initd" "${PN}"
+	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
+
+	keepdir "/var/log/${PN}"
 }
 
 pkg_postinst() {
-	elog "Before starting ${PN} the first time, you should create"
-	elog "the /etc/${PN}/${PN}.conf file."
-	elog "You can find example configuration files under /etc/${PN}"
-	elog "Read the ${PN}.conf.example file carefully before "
-	elog "(re)starting the service."
-	elog
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		# This is a new installation
+		elog "Before starting ${PN} the first time, you should create"
+		elog "the /etc/${PN}/${PN}.conf file."
+		elog "You can find example configuration files under /etc/${PN}"
+		elog "Read the ${PN}.conf.example file carefully before "
+		elog "(re)starting the service."
+		elog
+	fi
 }
