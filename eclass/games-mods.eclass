@@ -1,6 +1,5 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 # Variables to specify in an ebuild which uses this eclass:
 # GAME - (enemy-territory, etc), unless ${PN} starts with e.g. "enemy-territory-"
