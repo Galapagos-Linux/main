@@ -126,8 +126,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.16-fix_paths_in_libvirt-guests_sh.patch
 	"${FILESDIR}"/${PN}-3.0.0-fix_paths_for_apparmor.patch
 	"${FILESDIR}"/${PN}-1.3.4-glibc-2.23.patch
-
-	"${FILESDIR}"/${P}-Disable-use-of-namespaces-by-default.patch
 )
 
 pkg_setup() {
