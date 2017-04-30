@@ -9,10 +9,10 @@ inherit kde5 python-single-r1
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://www.kde.org/applications/education/kstars https://edu.kde.org/kstars"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="fits indi raw wcs xplanet"
 
-REQUIRED_USE="indi? ( fits )"
+REQUIRED_USE="indi? ( fits ) ${PYTHON_REQUIRED_USE}"
 
 # TODO: AstrometryNet requires new package
 COMMON_DEPEND="

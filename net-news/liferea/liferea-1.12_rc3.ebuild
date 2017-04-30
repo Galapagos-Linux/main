@@ -1,10 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=6
+
 PYTHON_COMPAT=( python3_{4,5} )
 
-inherit autotools gnome2 pax-utils python-r1
+inherit autotools gnome2 pax-utils python-single-r1
 
 MY_P=${P/_/-}
 MY_PV=${PV/_/-}
@@ -17,12 +18,12 @@ SRC_URI="https://github.com/lwindolf/${PN}/releases/download/v${MY_PV}/${MY_P}.t
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86"
-
+KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND=">=dev-db/sqlite-3.7.0:3
+RDEPEND="${PYTHON_DEPS}
+	>=dev-db/sqlite-3.7.0:3
 	>=dev-libs/glib-2.28.0:2
 	dev-libs/gobject-introspection
 	dev-libs/json-glib
@@ -34,7 +35,6 @@ RDEPEND=">=dev-db/sqlite-3.7.0:3
 	net-libs/webkit-gtk:4
 	x11-libs/gtk+:3
 	>=x11-libs/pango-1.4.0"
-
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	virtual/pkgconfig"
